@@ -3,20 +3,17 @@ import { Routes, RouterModule } from '@angular/router';
 import { AccordionViewComponent } from './pages/accordion-view/accordion-view.component';
 import { CardsViewComponent } from './pages/cards-view/cards-view.component';
 import { TableViewComponent } from './pages/table-view/table-view.component';
-import { AccordionItemComponent } from './widgets/accordion-item/accordion-item.component';
-import { CustomAccordionComponent } from './widgets/custom-accordion/custom-accordion.component';
+import { ConstService } from './services/const.service';
 
 const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'cards-view',
+    redirectTo: ConstService.cards
   },
-  { path: 'cards-view', component: CardsViewComponent },
-  { path: 'tabelar-view', component: TableViewComponent },
-  { path: 'accordion-item', component: AccordionItemComponent },
-  { path: 'accordion-view', component: AccordionViewComponent },
-  { path: 'custom-accordion', component: CustomAccordionComponent },
+  { path: ConstService.cards, component: CardsViewComponent },
+  { path: ConstService.table, component: TableViewComponent },
+  { path: ConstService.accordion, component: AccordionViewComponent },
 ];
 
 @NgModule({

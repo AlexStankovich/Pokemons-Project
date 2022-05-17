@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { Pokemon } from 'src/app/models/pokemon';
 import { DataService } from 'src/app/services/data.service';
 import { ConfirmationDialogPopupService } from 'src/app/services/dialog/confirmation-dialog.service';
