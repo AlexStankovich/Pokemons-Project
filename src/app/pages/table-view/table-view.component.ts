@@ -48,11 +48,18 @@ export class TableViewComponent implements OnInit, OnDestroy {
     this.dataService.resetPokemonEdit();
     this.additionalInformation = pokemon.additionalInformation;
     pokemon.isEditing = true;
+    console.log(pokemon.isEditing);
   }
 
   cancelEdit(pokemon: Pokemon): void {
     pokemon.isEditing = false;
     pokemon.additionalInformation = pokemon.additionalInformation;
+  }
+
+  save(pokemon: Pokemon): void {
+    pokemon.additionalInformation = this.additionalInformation;
+    this.dataService.savePokemon(pokemon);
+    pokemon.isEditing = false;
   }
 
   sortAlphabetically(): void {
@@ -70,10 +77,11 @@ export class TableViewComponent implements OnInit, OnDestroy {
 
   filterPokemons(filterQuery: string): void {
     this.filterQuery = filterQuery;
-    this.dataService.filterPokemonsByName(
+    this.displayedPokemons = this.dataService.filterPokemonsByName(
       this.dataService.addedPokemons,
       this.filterQuery
     );
+  
   }
 
   onFilterChange(event: KeyboardEvent): void {

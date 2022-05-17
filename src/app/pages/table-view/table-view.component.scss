@@ -50,6 +50,10 @@ th :nth-child(4) {
   overflow-x: auto;
 }
 
+.sort-toggle {
+  display: none;
+}
+
 @media screen and (max-width: 1100px) {
   table {
     width: 100%;

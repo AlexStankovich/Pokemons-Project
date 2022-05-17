@@ -15,9 +15,8 @@
         <th>
           Pokemon Name
           <button class="sort-button" (click)="sortAlphabetically()">
-            <mat-icon aria-hidden="false" aria-label="Example sort icon" s
-              >sort_by_alpha</mat-icon
-            >
+            <mat-icon [ngClass]="isSorted ? 'sort-toggle': ''">arrow_upward</mat-icon>
+            <mat-icon [ngClass]="!isSorted ? 'sort-toggle': ''">arrow_downward</mat-icon>
           </button>
         </th>
         <th>Pokemon Image</th>
@@ -60,7 +59,7 @@
             mat-button
             (click)="pokemon.isEditing ? save(pokemon) : edit(pokemon)"
           >
-            {{ isEditing ? "Save" : "Edit" }}
+            {{ pokemon.isEditing ? "Save" : "Edit" }}
           </button>
         </td>
       </tr>
