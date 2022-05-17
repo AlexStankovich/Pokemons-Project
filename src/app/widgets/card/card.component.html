@@ -1,0 +1,26 @@
+<div class="card">
+  <div class="card-title">
+    <img [src]="pokemon.image" />
+    <p>{{ pokemon.name | titlecase }}</p>
+  </div>
+  <div class="card-content">
+    <p>{{ pokemon.description }}</p>
+    <p class="additional-information" *ngIf="!isEditing">
+      {{ pokemon.additionalInformation | titlecase }}
+    </p>
+  </div>
+  <div *ngIf="isEditing" style="height: 57px">
+    <input type="text" [(ngModel)]="additionalInformation" />
+  </div>
+
+  <button
+    class="but1"
+    mat-button
+    (click)="isEditing ? cancelEdit() : removePokemon(pokemon.id)"
+  >
+    {{ isEditing ? "Cancel" : "Remove" }}
+  </button>
+  <button mat-button (click)="isEditing ? save(pokemon) : edit()">
+    {{ isEditing ? "Save" : "Edit" }}
+  </button>
+</div>

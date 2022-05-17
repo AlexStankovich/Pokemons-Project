@@ -1,0 +1,19 @@
+.cards-section {
+  padding-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 10px;
+  overflow: auto;
+  height: calc(100% - 10vh);
+}
+
+app-card {
+  flex: 0 1 300px;
+}
+
+@media screen and (max-width: 610px) {
+  .cards-section {
+    justify-content: center;
+  }
+}

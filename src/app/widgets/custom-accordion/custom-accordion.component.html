@@ -1,0 +1,21 @@
+<div class="accordion-item">
+  <div class="accordion-header" (click)="onHeaderClick()">
+    <div class="header-title">{{ pokemon.name | titlecase }}</div>
+
+    <svg
+      [@svgRotate]="state"
+      xmlns="http://www.w3.org/2000/svg"
+      height="48"
+      width="48"
+    >
+      <path d="M24 30.75 12 18.75 14.15 16.6 24 26.5 33.85 16.65 36 18.8Z" />
+    </svg>
+  </div>
+  <div *ngIf="clicked" class="accordion-body" @accordion_body>
+    <div class="accordion-content"><img src="{{ pokemon.image }}" /></div>
+    <div class="accordion-content">{{ pokemon.description | titlecase }}</div>
+    <div class="accordion-content">
+      {{ pokemon.additionalInformation | titlecase }}
+    </div>
+  </div>
+</div>

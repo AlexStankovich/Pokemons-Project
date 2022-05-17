@@ -1,0 +1,15 @@
+<h1>{{ data.title }}</h1>
+<mat-dialog-actions>
+  <button mat-raised-button mat-dialog-close color="accent">
+    {{ data.cancelLabel }}
+  </button>
+  <button
+    mat-raised-button
+    [mat-dialog-close]="true"
+    color="primary"
+    cdkFocusInitial
+    (click)="confirm()"
+  >
+    {{ data.confirmLabel }}
+  </button>
+</mat-dialog-actions>

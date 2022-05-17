@@ -1,0 +1,7 @@
+<div class="cards-section">
+  <app-card
+    *ngFor="let pokemon of displayedPokemons"
+    [pokemon]="pokemon"
+    (displayedPokemonsChanged)="onDisplayedPokemonsChanged($event)"
+  ></app-card>
+</div>

@@ -1,0 +1,13 @@
+<div class="accordion-wrapper">
+  <app-accordion-item
+    *ngFor="let pokemon of displayedPokemons"
+    [pokemon]="pokemon"
+  ></app-accordion-item>
+</div>
+
+<div class="accordion-wrapper">
+  <app-custom-accordion
+    *ngFor="let pokemon of displayedPokemons"
+    [pokemon]="pokemon"
+  ></app-custom-accordion>
+</div>

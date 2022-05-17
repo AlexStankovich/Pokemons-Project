@@ -1,0 +1,69 @@
+<mat-form-field class="example-full-width" appearance="fill">
+  <mat-label>Filter Pokemons by Name</mat-label>
+  <input
+    matInput
+    placeholder="Pokemon Name"
+    type="text"
+    [value]="filterQuery"
+    (keyup)="onFilterChange($event)"
+  />
+</mat-form-field>
+<div class="test">
+  <table>
+    <thead>
+      <tr>
+        <th>
+          Pokemon Name
+          <button class="sort-button" (click)="sortAlphabetically()">
+            <mat-icon aria-hidden="false" aria-label="Example sort icon" s
+              >sort_by_alpha</mat-icon
+            >
+          </button>
+        </th>
+        <th>Pokemon Image</th>
+        <th>Pokemon Description</th>
+        <th>Additional Information</th>
+        <th>Remove</th>
+        <th>Edit</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let pokemon of displayedPokemons">
+      <tr>
+        <td>{{ pokemon.name | titlecase }}</td>
+
+        <td><img src="{{ pokemon.image }}" /></td>
+        <td>{{ pokemon.description | titlecase }}</td>
+        <td>
+          <div class="additional-information" *ngIf="!pokemon.isEditing">
+            {{ pokemon.additionalInformation | titlecase }}
+          </div>
+          <div *ngIf="pokemon.isEditing" style="height: 57px">
+            <input type="text" [(ngModel)]="additionalInformation" />
+          </div>
+        </td>
+
+        <td>
+          <button
+            mat-button
+            (click)="
+              pokemon.isEditing
+                ? cancelEdit(pokemon)
+                : removePokemon(pokemon.id)
+            "
+          >
+            {{ pokemon.isEditing ? "Cancel" : "Remove" }}
+          </button>
+        </td>
+        <td>
+          <button
+            class="but1"
+            mat-button
+            (click)="pokemon.isEditing ? save(pokemon) : edit(pokemon)"
+          >
+            {{ isEditing ? "Save" : "Edit" }}
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
